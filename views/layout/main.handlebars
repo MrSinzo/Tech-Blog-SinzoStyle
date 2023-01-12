@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinzo's tech Blog</title>
+    <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<header>
+  <div class="bg1">
+    <nav class="flex-row justify-content-center">
+      <h3>Home</h3>
+      <h3>Dashboard</h3>
+                <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+    </nav>
+    <div class="container ml-2">
+      <h1>Sinzo's Tech Blog</h1>
+    </div>
+  </div>
+</header>
+<body>
+{{!-- ? may not need line 23 here --}}
+{{{body}}} 
+</body>
+</html>

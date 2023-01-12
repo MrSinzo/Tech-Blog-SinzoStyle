@@ -4,7 +4,8 @@
   "description": "Simple little site to post blogs about new tech!",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "dotenv": "^16.0.3",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "express.js": "^1.0.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.28.0"
   }
