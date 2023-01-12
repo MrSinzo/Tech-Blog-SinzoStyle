@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Subject } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+//require a user to be signed in to interact with webpage
 router.post('/', withAuth, async (req, res) => {
   try {
     const newSubject = await Subject.create({
@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+///allow the signed in user to be able to delete a specific post that belongs to them
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const subjectData = await Subject.destroy({
@@ -23,7 +23,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-
+// if no subject ( or blog) is found, return err
     if (!subjectData) {
       res.status(404).json({ message: 'No subject found with this id!' });
       return;

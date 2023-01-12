@@ -8,13 +8,13 @@ Subject.init({
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
-    autoIncremnt: true,
+    autoIncrement: true,
   },
   subjectName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  subjectDescription: {
+  subjectInfo: {
     type: DataTypes.STRING,
     allowNull: false,
   },
