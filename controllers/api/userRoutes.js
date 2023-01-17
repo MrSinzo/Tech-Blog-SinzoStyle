@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
       
       res.json({ user: userData, message: 'Welcome back! You have succesfully logged in!' });
     });
-
+    console.log("Welcome back! You have succesfully logged in!")
   } catch (err) {
     res.status(400).json(err);
   }

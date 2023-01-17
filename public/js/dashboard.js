@@ -4,19 +4,21 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
+  //gets the values inputted from user and stores them in local variables
   const name = document.querySelector("#subject-name").value.trim();
   const description = document.querySelector("#subject-desc").value.trim();
 
   if (name && description) {
-    console.log(name) // data is being pulled from input
-    console.log(description)// data is being pulled from input
-    const response = await fetch(`/api/dashboard/subject`, {
+    console.log(name) // data is console logged
+    console.log(description)// data is console logged
+    const response = await fetch("/api/dashboard/post", {
       method: "POST",
       body: JSON.stringify({ name, description }),
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    })
+    // console.log(body));
     // console.log( "got Milk")
     if (response.ok) {
       document.location.replace("/dashboard");

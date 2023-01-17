@@ -39,19 +39,9 @@ router.get("/subject/:id", async (req, res) => {
         },
       ],
     });
-    // const postData = await Post.findByPk(req.params.id, {
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ["name"],
-    //     },
-    //   ],
-    // });
     const subject = subjectData.get({ plain: true });
-    // const post = postData.get({ plain: true });
 
     res.render("subject", {
-      // ...post,
       ...subject,
       logged_in: req.session.logged_in,
     });
@@ -94,8 +84,11 @@ router.get("/signUp", (req, res) => {
   res.render("signUp");
 });
 
-// testing post logout** added /dashboard
-router.post("/dashboard/logout", (req, res) => {
+// testing post logout** added /dashboard** taking out dashboard caused 404 error 
+// the error said it was looking for :3001/dashboard/logout
+// i changed this to just /logout anlong with the corresponding one in logout.js and it worked
+// so why wont the post ...?
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -104,4 +97,6 @@ router.post("/dashboard/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
+
 module.exports = router;

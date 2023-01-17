@@ -5,8 +5,7 @@ const withAuth = require('../../utils/auth');
 /*********************************************/
 /****************Create***********************/
 /*********************************************/
-router.post('/api/dashboard/subject', withAuth, async (req, res) => {
-  console.log("got here")
+router.post("/dashboard/post", withAuth, async (req, res) => {
   try {
     const newSubject = await Subject.create({
       ...req.body,
