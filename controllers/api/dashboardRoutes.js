@@ -1,11 +1,27 @@
+/**REQUIRES**/
 const router = require('express').Router();
-const { Subject } = require('../../models');
+const { Subject, } = require('../../models');
 const withAuth = require('../../utils/auth');
+/*********************************************/
+/****************Create***********************/
+/*********************************************/
+router.post('/api/dashboard/subject', withAuth, async (req, res) => {
+  console.log("got here")
+  try {
+    const newSubject = await Subject.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.status(200).json(newSubject);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 /*********************************************/
 /****************Delete***********************/
 /*********************************************/
 router.delete('/subject/:id',withAuth, async (req, res) => {
-  console.log("Got route")
+  // console.log("Got to Delete on dashboardRoutes.js")
   try {
     const subjectData = await Subject.destroy({
       where: {
@@ -24,20 +40,6 @@ router.delete('/subject/:id',withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-/*********************************************/
-/****************UpDate***********************/
-/*********************************************/
-router.post('/subject', withAuth, async (req, res) => {
-  console.log("got here")
-  try {
-    const newSubject = await Subject.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-    res.status(200).json(newSubject);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+
 
 module.exports = router;

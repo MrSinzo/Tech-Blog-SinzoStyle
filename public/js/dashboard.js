@@ -1,5 +1,5 @@
 /*********************************************/
-/****************UpDate***********************/
+/****************Create***********************/
 /*********************************************/
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -10,7 +10,7 @@ const newFormHandler = async (event) => {
   if (name && description) {
     console.log(name) // data is being pulled from input
     console.log(description)// data is being pulled from input
-    const response = await fetch(`/subject`, {
+    const response = await fetch(`/api/dashboard/subject`, {
       method: "POST",
       body: JSON.stringify({ name, description }),
       headers: {
@@ -46,10 +46,13 @@ const delButtonHandler = async (event) => {
   }
 };
 
+
+/****************Create Hook***********************/
 document
   .querySelector(".new-subject-form")
   .addEventListener("submit", newFormHandler);
 
+/****************Delete Hook***********************/
 document
   .querySelector(".subject-list")
   .addEventListener("click", delButtonHandler);
