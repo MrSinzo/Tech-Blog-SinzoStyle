@@ -4,6 +4,7 @@ const session = require('express-session'); // express-session npm
 const exphbs = require('express-handlebars'); // express-handlebars npm
 const routes = require('./controllers'); // main routes 
 const helpers = require('./utils/helpers'); // helper functions folder
+require('dotenv').config();
 
 const sequelize = require('./config/connection'); // sequelize connection info?
 const SequelizeStore = require('connect-session-sequelize')(session.Store); //sequelize session storage npm
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 //session enviroment settings?
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SECRET, // move to dotenv file
   cookie: {
     maxAge: 300000,
     httpOnly: true,
@@ -42,3 +43,7 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening @ http://localhost:3001'));
 });
+
+/*********************************************/
+/****************Delete***********************/
+/*********************************************/

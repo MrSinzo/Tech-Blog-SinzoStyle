@@ -2,11 +2,16 @@
   {
     "name": "JackBlack" ,
     "email": "JB@TenaciousD.com",
-    "password": "password12345"
+    "password": "password1"
   },
   {
     "name": "SallieMay",
     "email": "Leaveyou@inDebt.com",
-    "password": "password12345"
-  }
+    "password": "password1"
+  },
+  {
+		"name": "JoeBlower",
+		"email": "new@email.com",
+		"password": "password1"
+	}
 ]

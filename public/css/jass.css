@@ -1185,7 +1185,7 @@ form [type='radio'] {
 .flex-column {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .flex-wrap {

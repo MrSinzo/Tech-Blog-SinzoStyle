@@ -1,7 +1,9 @@
-<div>
-  <h2 class="abbr">{{subject.subjectName}}</h2>
-  <p class="samp">{{subject.subjectDescription}}</p>
-  <p class="small">Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-  </p>
+{{!-- // This handlebars will make the particular Subject come into focus on the browser --}}
+<div class="container">
+  <h2 class="">{{subjectName}}</h2>
+  <p class="">{{subjectInfo}}</p>
+  <p class="">Created by {{user.name}} on {{format_date date_posted}}</p>
+  {{#if logged_in}}
+  <button class="" id="">UPDATE</button>
+  <p>Going to need a post button and maybe the delete button if possible here</p>
 </div>

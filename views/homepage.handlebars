@@ -1,3 +1,9 @@
-<div>
-  Stuff
+{{#each subjects as |subject| }}
+<div class="card ml-2 py-3 mr-2">
+  <div class="flex-column justify-center">
+    <h2 class="py-2 px-2 bg1"> <a href="/subject/{{subject.id}}">{{subject.subjectName}} : Posted by {{subject.user.name}}</a></h2>
+    <p class="mx-2">{{subject.subjectInfo}}</p>
+    <p class="mx-2">Blog post date = {{format_date subject.date_posted}}</p>
+  </div>
 </div>
+{{/each}}

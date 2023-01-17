@@ -1,3 +1,11 @@
 .bg1 {
   background-color: brown;
 }
+
+.ctxt {
+  text-align: center;
+}
+
+.border{
+  border: 5px solid brown ;
+}

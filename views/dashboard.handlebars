@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-auto">
+    <h2 class="ctxt container border">Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+
+{{#if subjects.length}}
+<div>
+  <div class="ctxt subject-list">
+    <h3 class="ctxt">Current Blogs:</h3>
+
+    {{#each subjects as |subject|}}
+    <div class="row mb-2 ctxt">
+      <div class="col-md-6">
+        <h4 class="ctxt"><a href="/subject/{{subject.id}}">{{subject.subjectName}}</a></h4>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-sm btn-danger" data-id="{{subject.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<div class="row mt-4">
+  <div class="container card card card-rounded">
+    <h3 class="p-3 bg1 ctxt">Create a New Blog:</h3>
+
+    <form class="form new-subject-form">
+      <div class="form-group">
+        <label for="subject-name">Blog name:</label>
+        <input class="form-input" type="text" id="subject-name" name="subject-name" />
+      </div>
+      <div class="form-group">
+        <label for="subject-desc">Description:</label>
+        <textarea class="form-input px-2" id="subject-desc" name="subject-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info">Post Blog!</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/dashboard.js"></script>
+<script src="/js/logout.js"></script>
+

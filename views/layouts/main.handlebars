@@ -4,30 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sinzo's tech Blog</title>
+  <title>Sinzo's Tech Blog</title>
     <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <header>
   <div class="bg1">
-    <nav class="flex-row justify-content-center">
-      <h3>Home</h3>
-      <h3>Dashboard</h3>
-                <!-- Conditionally render login or logout links -->
+    <nav class="flex-row justify-space-around">
+      <h3><a href="/ ">Home</a></h3>
+      <!-- if statement to swap hud display dependning on login status -->
+        <h3 class="ctxt px-2">
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/dashboard">Dashboard</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
+        </h3>
     </nav>
     <div class="container ml-2">
-      <h1>Sinzo's Tech Blog</h1>
+      <h1 class="display-flex strong justify-center">Sinzo's Tech Blog</h1>
     </div>
   </div>
 </header>
 <body>
-{{!-- ? may not need line 23 here --}}
-{{{body}}} 
+{{{ body }}} 
 </body>
 </html>
