@@ -1,18 +1,20 @@
 /**REQUIRES**/
 const router = require('express').Router();
-const { Subject, } = require('../../models');
+const { Subject } = require('../../models');
 const withAuth = require('../../utils/auth');
 /*********************************************/
 /****************Create***********************/
 /*********************************************/
-router.post("/dashboard/post", withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
+    // console.log("coo coo for coca")
     const newSubject = await Subject.create({
       ...req.body,
       user_id: req.session.user_id,
     });
     res.status(200).json(newSubject);
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
@@ -28,7 +30,7 @@ router.delete('/subject/:id',withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-// if no subject ( or blog) is found, return err
+// if no subject (or blog) is found, return err
     if (!subjectData) {
       res.status(404).json({ message: 'No subject found with this id!' });
       return;

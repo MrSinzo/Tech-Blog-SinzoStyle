@@ -16,7 +16,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: process.env.SECRET, // move to dotenv file
   cookie: {
-    maxAge: 300000,
+    maxAge: 600000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',

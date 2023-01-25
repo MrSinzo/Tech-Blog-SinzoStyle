@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Subject, User, Post } = require("../models");
+const { Subject, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 /**Get home page and displays all subjects (blogs)**/
@@ -37,6 +37,10 @@ router.get("/subject/:id", async (req, res) => {
           model: User,
           attributes: ["name"],
         },
+        {
+          model: Comment,
+          attributes: ['comment']
+        },
       ],
     });
     const subject = subjectData.get({ plain: true });
@@ -69,9 +73,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // Login Route
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect("/dashboard");
     return;
@@ -84,10 +88,6 @@ router.get("/signUp", (req, res) => {
   res.render("signUp");
 });
 
-// testing post logout** added /dashboard** taking out dashboard caused 404 error 
-// the error said it was looking for :3001/dashboard/logout
-// i changed this to just /logout anlong with the corresponding one in logout.js and it worked
-// so why wont the post ...?
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

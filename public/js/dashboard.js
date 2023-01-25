@@ -11,9 +11,11 @@ const newFormHandler = async (event) => {
   if (name && description) {
     console.log(name) // data is console logged
     console.log(description)// data is console logged
-    const response = await fetch("/api/dashboard/post", {
+    const response = await fetch(`/api/dashboard`, {
       method: "POST",
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({
+        subjectName: name, 
+        subjectInfo: description }),
       headers: {
         "Content-Type": "application/json",
       },
